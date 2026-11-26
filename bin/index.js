@@ -24,7 +24,8 @@ program
 program.parse(process.argv);
 
 const options = program.opts();
-const limit = parseInt(options.limit, 10) || 8;
+const rawLimit = parseInt(options.limit, 10);
+const limit = !isNaN(rawLimit) && rawLimit > 0 ? Math.min(rawLimit, 50) : 8;
 
 async function runInteractiveMenu() {
   console.log(chalk.bold.cyan('\n📊 Welcome to Financial News CLI 🚀'));
@@ -85,8 +86,12 @@ async function loadAndHandleNews(query, title, allowOpenChoice) {
       });
 
       if (shouldOpen) {
-        console.log(chalk.green(`Opening article in browser...`));
-        await open(shouldOpen);
+        if (/^https?:\/\//i.test(shouldOpen)) {
+          console.log(chalk.green(`Opening article in browser...`));
+          await open(shouldOpen);
+        } else {
+          console.log(chalk.red(`Invalid URL scheme. Cannot open article.`));
+        }
       }
     }
   } catch (error) {
@@ -111,7 +116,9 @@ async function main() {
 main().catch((err) => {
   if (err.name === 'ExitPromptError') {
     console.log('\nGoodbye!');
+    process.exit(0);
   } else {
     console.error(err);
+    process.exit(1);
   }
 });

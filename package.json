@@ -26,6 +26,9 @@
   ],
   "author": "Salih Emin",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@inquirer/prompts": "^7.3.2",
     "chalk": "^5.4.1",

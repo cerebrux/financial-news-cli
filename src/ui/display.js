@@ -7,6 +7,8 @@ function getRelativeTime(date) {
   if (!date || isNaN(date.getTime())) return 'Recently';
   const now = new Date();
   const diffMs = now - date;
+  if (diffMs <= 0) return 'Just now';
+
   const diffSec = Math.floor(diffMs / 1000);
   const diffMin = Math.floor(diffSec / 60);
   const diffHr = Math.floor(diffMin / 60);
