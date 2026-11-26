@@ -1,0 +1,37 @@
+{
+  "name": "financial-news-cli",
+  "version": "1.0.0",
+  "description": "Command line tool to fetch latest Stocks and Crypto news from Google News",
+  "type": "module",
+  "bin": {
+    "financial-news": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cerebrux/financial-news-cli.git"
+  },
+  "homepage": "https://github.com/cerebrux/financial-news-cli#readme",
+  "bugs": {
+    "url": "https://github.com/cerebrux/financial-news-cli/issues"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js"
+  },
+  "keywords": [
+    "stocks",
+    "crypto",
+    "news",
+    "google-news",
+    "cli"
+  ],
+  "author": "cerebrux",
+  "license": "MIT",
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.2",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "open": "^10.1.0",
+    "ora": "^8.2.0",
+    "rss-parser": "^3.13.0"
+  }
+}
