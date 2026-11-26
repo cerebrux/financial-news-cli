@@ -24,7 +24,7 @@
     "google-news",
     "cli"
   ],
-  "author": "cerebrux",
+  "author": "Salih Emin",
   "license": "MIT",
   "dependencies": {
     "@inquirer/prompts": "^7.3.2",
