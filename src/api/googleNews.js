@@ -3,7 +3,7 @@ import Parser from 'rss-parser';
 const parser = new Parser({
   timeout: 10000,
   headers: {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+    'User-Agent': 'FinancialNewsCLI/1.0.1 (https://github.com/cerebrux/financial-news-cli)'
   }
 });
 
